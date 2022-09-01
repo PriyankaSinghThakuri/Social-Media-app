@@ -13,6 +13,7 @@ import sideComponents from "../sideComponents/sideComponents";
 
 const NewsFeed = () => {
   const [comment, setComment] = useState("");
+  console.log(comment)
   // theme conditon
   // const ReactPost = () => {
   //   setLike((curr) => (curr === "Like" ? "Liked" : "Like"));
