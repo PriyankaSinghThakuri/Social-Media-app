@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
+import NewsFeed from "./components/NewsFeed/NewsFeed";
+import NoMatchPage from "./components/NoMatchPage/NoMatchPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <BrowserRouter>
+        <div className="route-container">
+          <Routes>
+            <Route exact path="/" element={<SignIn />} />
+            <Route exact path="/signup" element={<SignUp />} />
+            <Route exact path="/newsfeed" element={<NewsFeed />} />
+            {/* <Route exact path="/cart" element={<ShoppingCart />} />
+            <Route exact path="/customers" element={<CustomerList />} /> */}
+            <Route path="/*" element={<NoMatchPage />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </div>
   );
 }
